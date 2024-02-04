@@ -1,0 +1,74 @@
+SELECT * FROM tblPerson;
+
+INSERT INTO tblPerson VALUES(10,'Jacquilin','m@a.com',2,26,'New York',1000000000.00,'Female');
+
+CREATE TABLE tblDepartment(ID INT,DepartmentName VARCHAR(250),Location VARCHAR(250),DepartmentHead VARCHAR(250)); 
+
+INSERT INTO tblDepartment VALUES(1,'IT','London','Rick');
+INSERT INTO tblDepartment VALUES(2,'Payroll','NewYork','Ron');
+INSERT INTO tblDepartment VALUES(3,'HR','California','Christie');
+INSERT INTO tblDepartment VALUES(4,'Other Department','Sydney','Cindrella');
+
+SELECT * FROM tblPerson;
+SELECT * FROM tblDepartment;
+
+ALTER TABLE tblPerson ADD DepartmentId INT;
+
+SELECT * FROM tblPerson;
+SELECT * FROM tblDepartment;
+
+SELECT Name, Gender, Salary, DepartmentName 
+FROM tblPerson
+JOIN tblDepartment
+ON tblPerson.DepartmentId = tblDepartment.ID;
+
+SELECT Name, Gender, Salary, DepartmentName 
+FROM tblPerson
+INNER JOIN tblDepartment
+ON tblPerson.DepartmentId = tblDepartment.ID;
+
+
+UPDATE tblPerson SET tblPerson.DepartmentId = 1 WHERE ID = 1;
+UPDATE tblPerson SET tblPerson.DepartmentId = 3 WHERE ID = 2;
+UPDATE tblPerson SET tblPerson.DepartmentId = 1 WHERE ID = 3;
+UPDATE tblPerson SET tblPerson.DepartmentId = 2 WHERE ID = 4;
+UPDATE tblPerson SET tblPerson.DepartmentId = 2 WHERE ID = 5;
+UPDATE tblPerson SET tblPerson.DepartmentId = 1 WHERE ID = 6;
+UPDATE tblPerson SET tblPerson.DepartmentId = 3 WHERE ID = 7;
+UPDATE tblPerson SET tblPerson.DepartmentId = 1 WHERE ID = 8;
+UPDATE tblPerson SET tblPerson.DepartmentId = 2 WHERE ID = 9;
+UPDATE tblPerson SET tblPerson.DepartmentId = 3 WHERE ID = 10;
+
+SELECT * FROM tblPerson;
+SELECT * FROM tblDepartment;
+
+SELECT Name, Gender, Salary, DepartmentName 
+FROM tblPerson
+LEFT JOIN tblDepartment
+ON tblPerson.DepartmentId = tblDepartment.ID;
+
+SELECT Name, Gender, Salary, DepartmentName 
+FROM tblPerson
+LEFT OUTER JOIN tblDepartment
+ON tblPerson.DepartmentId = tblDepartment.ID;
+
+SELECT Name, Gender, Salary, DepartmentName 
+FROM tblPerson
+RIGHT OUTER JOIN tblDepartment
+ON tblPerson.DepartmentId = tblDepartment.ID;
+
+SELECT Name, Gender, Salary, DepartmentName 
+FROM tblPerson
+FULL OUTER JOIN tblDepartment
+ON tblPerson.DepartmentId = tblDepartment.ID;
+
+SELECT Name, Gender, Salary, DepartmentName 
+FROM tblPerson
+CROSS JOIN tblDepartment;
+
+SELECT ColumnList 
+FROM   LeftTable
+JoinType RightTable
+ON      JoinCondition 
+
+
